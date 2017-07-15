@@ -62,7 +62,12 @@ More info about `dropbox-cli`: [Dropbox Wiki](http://www.dropboxwiki.com/tips-an
 
 ## Manage exclusions and check sync status
 
-    docker exec -ti dropbox dropbox\ help
+    docker exec -it dropbox dropbox-cli exclude list
+
+and
+
+    docker exec -it dropbox dropbox-cli status
+
 
 ## Exposed volumes
 
