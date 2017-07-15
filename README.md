@@ -5,19 +5,17 @@ It's less than half size of any traditional Debian or Ubuntu based Dropbox image
 
 Run Dropbox inside Docker. Fully working with local host folder mount or inter-container linking (via `--volumes-from`).
 
-This repository provides the [zburgermeiszter/dropbox](https://registry.hub.docker.com/u/zburgermeiszter/dropbox/) image.
-
 ## Usage examples
 
 ### Quickstart
 
-    docker run -d --restart=always --name=dropbox zburgermeiszter/dropbox
+    docker run -d --restart=always --name=dropbox dylansm/dropbox
 
 ### Dropbox data mounted to local folder on the host
 
     docker run -d --restart=always --name=dropbox \
     -v /path/to/dropbox/data:/home/user/Dropbox \
-    zburgermeiszter/dropbox
+    dylansm/dropbox
     
 ### Keep Dropbox data and settings on a host folder
 This way there's no need to reauthorize the container with Dropbox account, and it's possible to run multiple Dropbox instances simply by changing name and the path to dropbox settings.
@@ -25,19 +23,19 @@ This way there's no need to reauthorize the container with Dropbox account, and 
     docker run -d --restart=always --name=dropbox \
     -v /path/to/dropbox/data:/home/user/Dropbox \
     -v /path/to/dropbox/settings:/home/user/.dropbox \
-    zburgermeiszter/dropbox
+    dylansm/dropbox
 
 ### Use the host timezone in the container
 	
     docker run -d --restart=always --name=dropbox \
     -v /etc/localtime:/etc/localtime:ro \
-    zburgermeiszter/dropbox
+    dylansm/dropbox
 
 ### Enable LAN Sync
 
     docker run -d --restart=always --name=dropbox \
     -p 17500:17500 \
-    zburgermeiszter/dropbox
+    dylansm/dropbox
 
 ## Linking to Dropbox account after first start
 
